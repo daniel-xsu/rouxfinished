@@ -1,0 +1,51 @@
+<!-- Page Content -->
+<div id="page-wrapper">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          QRS DataTable Queries
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+          <div class="dataTable_wrapper" ng-controller="demoController">
+            <table datatable="ng" class="table table-striped table-bordered table-hover" id="dataTables-example">
+              <thead>
+              <tr>
+                <th>DATA_CENTER</th>
+                <th>RLI</th>
+                <th>CUSTOMER</th>
+                <th>CUSTOMER_TYPE</th>
+                <th>MANAGEMENT</th>
+                <th>STATE</th>
+                <th>SLA_BREACH_HRS</th>
+              </tr>
+              </thead>
+
+              <tbody>
+              <tr ng-repeat="row in result.rows">
+                <td ng-repeat="col in result.metaData">
+                  <div ng-switch on="col.name">
+                    <div ng-switch-when="RLI">
+                      <a href="/rli/{{row[col.name]}}"><i class="fa fa-table fa-fw"></i> {{row[col.name]}}</a>
+                    </div>
+                    <div ng-switch-default>
+                      {{row[col.name]}}
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+      </div>
+      <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+</div>
+<!-- /#page-wrapper -->

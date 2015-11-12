@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var debug = require('debug')('rouxfinished');
+var debug = require('debug')('demo');
 var app = require('../app');
 
 app.set('port', process.env.PORT || 3000);
